@@ -1,0 +1,90 @@
+﻿@model Grater.ViewModels.TherapistIndexData
+@using Microsoft.AspNet.Identity
+@*
+
+*@
+
+@{
+    ViewBag.Title = "Therapist";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Therapist</h2>
+<p>
+    @{
+        int userten = User.Identity.GetUserId<int>();
+    }
+        @Html.ActionLink("Edit", "Edit/" + userten) 
+        @Html.ActionLink("Create New", "Create")
+        @* FormMetod.get i pirwsze proby zmiany testboxa to proba z piatku*@
+</p>
+@using (Html.BeginForm("index", "therapist", FormMethod.Get))
+{
+    <table class="table-condensed">
+        <tr>
+            <th>Search by name:</th>
+            <th>Search by city:</th>
+            <th>Search by phone number:</th>
+        </tr>
+        <tr>
+            @* <td> @Html.TextBoxFor(m=>m.th)</td> *@
+
+            <td> @Html.TextBox("searchString")</td>
+            <td> @Html.TextBox("searchString")</td>
+        </tr>
+        <tr>
+            <td> <input type="submit" value="Search" />   @*value - label*@</td>
+
+        </tr>
+    </table>
+
+}
+<table class="table">
+    <tr>
+        <th>
+            @*     @Html.DisplayNameFor(model => model.TherapistName)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.City)
+                </th>
+                <th>
+                    @*Html.DisplayNameFor(model => model.PhoneNumber)
+                </th>
+                <th>
+                    @*    @Html.DisplayNameFor(model => model.SkillName) *@
+        </th>
+        <th></th>
+
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model.Therapists)
+    {
+        <tr>
+
+            <td>
+                @Html.ActionLink(item.TherapistName, "Details", new { id = item.TherapistId }, null)
+            </td>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+
+            </td>
+            <td>
+                @*Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td>
+                        @*       @item.Skill.SkillBody *@
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TherapistId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.TherapistId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TherapistId })
+            </td>
+        </tr>
+    }
+</table>

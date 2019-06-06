@@ -1,0 +1,105 @@
+﻿@model IEnumerable<Grater.Models.Therapist>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index1</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TherapistName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TherapistSurname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mobile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WhereMobile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SkillDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TherapistImagePath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TherapistName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TherapistSurname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mobile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WhereMobile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SkillDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TherapistImagePath)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TherapistId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TherapistId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TherapistId })
+        </td>
+    </tr>
+}
+
+</table>

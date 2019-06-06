@@ -1,0 +1,179 @@
+﻿@model Grater.Models.Therapist
+
+@{
+    ViewBag.Title = Model.TherapistName;
+    var commentContent = (IEnumerable<Grater.Models.Comment>)ViewBag.CommentContent;
+    var ratingSum = ViewBag.RatingSum;
+    var ratingCount = ViewBag.RatingCount;
+
+    double srednia = 0;
+    decimal rating = 0;
+    if (ratingCount > 0)
+    {
+        rating = (ratingSum / ratingCount);
+        srednia = (double)ratingSum / (double)ratingCount;
+    }
+
+    var totalRating = decimal.Parse(rating.ToString());
+
+}
+
+
+<div class="row">
+    <div class="col-lg-offset-11">
+        @srednia.ToString("F2")/5
+    </div>
+
+</div>
+<div>
+    <span class="starFadeN" id="sRate1"></span><span class="starFadeN" id="sRate2"></span><span class="starFadeN" id="sRate3"></span><span class="starFadeN" id="sRate4"></span><span class="starFadeN" id="sRate5"></span>
+</div>
+<div>
+    <dl class="dl-horizontal"></dl>
+</div>
+
+
+
+<script>
+    function SCRate() {
+        for (var i = 1; i <= @totalRating; i++) {
+            $("#sRate" + i).attr('class', 'starGlowN');
+        }
+    }
+    $(function(){
+        SCRate();
+    });
+</script>
+
+
+
+<div style="margin-left:100px">
+    <h3><b>Something about  @Html.DisplayFor(model => model.TherapistName)</b></h3>
+    <hr />
+    <div>
+
+
+        <img src="@Url.Content(Model.TherapistImagePath)" class="  img-circle" width="250" height="250" />
+        <div class="row">
+            <div class="col-lg-offset-11">
+                @srednia.ToString("F2")/5
+            </div>
+
+        </div>
+    </div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TherapistName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TherapistName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TherapistSurname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TherapistSurname)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+
+
+
+
+        @if (Model.Mobile == true)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.Mobile)
+            </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.WhereMobile)
+            </dt>
+        }
+
+        <dd>
+            @Html.DisplayFor(model => model.WhereMobile)
+        </dd>
+
+
+        <dd>
+            @Html.DisplayFor(model => model.TherapistImagePath)
+        </dd>
+
+    </dl>
+</div>
+<hr />
+@Html.Partial("_CommentBox")
+
+
+
+@foreach (var c in commentContent)
+{
+    <hr />
+
+    <div class="row">
+
+        <div class=" col-md-9">
+            <i>@c.ThisDateTime</i>
+            <br />
+            @for (var i = 1; i <= c.Rating; i++)
+            {
+                <span class="starGlowN"></span>
+            }
+            @for (var i = (c.Rating + 1); i <= 5; i++)
+            {
+                <span class="starFadeN"></span>
+            }
+        </div>
+        <blockquote>
+            <div class="col-md-3">
+                @Html.Raw(c.CommentContent.Replace("\n", "<br/>"))
+            </div>
+        </blockquote>
+
+    </div>
+
+}
+@{
+    foreach (var skill in Model.Skills)
+    {
+         @skill.SkillName <p>
+    
+    </p>
+
+
+
+
+    }
+}
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TherapistId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

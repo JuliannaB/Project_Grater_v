@@ -1,0 +1,75 @@
+﻿@model Grater.Models.BeautyArticle
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BeautyArticle</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ArticleTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArticleTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WhoAdd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WhoAdd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArticleBody)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArticleBody)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThisDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThisDateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre)
+        </dd>
+
+    </dl>
+</div>
+@foreach (var item in Model.ArticleComments)
+{
+
+
+    <div class=" col-md-9">
+        <i>@item.ThisDateTime</i>
+        <i>@item.ByWho</i>
+
+    </div>
+    <blockquote>
+        <div class="col-md-3">
+            @Html.Raw(item.CommentContent.Replace("\n", "<br/>"))
+        </div>
+    </blockquote>
+
+}
+@Html.Partial("_PostBox")
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ArticleId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

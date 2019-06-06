@@ -1,0 +1,30 @@
+﻿@model Grater.Models.User
+@{
+                /**/
+
+                ViewBag.Title = "New";
+}
+
+<h2>New User</h2>
+
+@using (Html.BeginForm("Create", "Users"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.UserName)
+        @* @Html.TextBoxFor(m=>m.UserName) only this one woluid be enought, @class = form etc is styling
+            MArkups, checkbox 6*@
+        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.UserCity)
+
+        @Html.TextBoxFor(m => m.UserCity, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.UserDescription)
+
+        @Html.TextBoxFor(m => m.UserDescription, new { @class = "form-control" })
+    </div>
+
+
+}
