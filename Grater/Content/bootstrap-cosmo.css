@@ -21,7 +21,9 @@ html {
 
 body {
     margin: 0;
-  
+background-color:antiquewhite;
+ 
+    
 }
 .editor-field textarea {
     width: 280px;

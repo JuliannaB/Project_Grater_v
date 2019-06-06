@@ -47,14 +47,32 @@ namespace Grater.Controllers
            }
 
            */
-        public ActionResult Index(int? id, int? skillId)
+
+   /*     public ActionResult Index (int? id, string searchString, string searchString1)
+        {
+
+            var therapists = from b in _context.Therapists
+                             select b;
+
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                therapists = therapists.Where(s => s.TherapistName.Contains(searchString));
+            }
+
+            if (!string.IsNullOrEmpty(searchString1))
+            {
+                therapists = therapists.Where(s => s.City.Contains(searchString1));
+            }
+            return View(therapists.ToList());
+        } */
+        public ActionResult Index(string sortOrder, string searchString,  int? id, int? skillId)
         {
             var viewModel = new TherapistIndexData();
 
             viewModel.Therapists = _context.Therapists
                 .Include(i => i.Skills)
                 .OrderBy(i => i.TherapistName);
-
 
             if (id != null)
             {
@@ -70,6 +88,24 @@ namespace Grater.Controllers
                 var selectedSkills = viewModel.Skills.Where(x => x.SkillId == skillId).Single();
 
             }
+
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+
+            var therapists = from b in _context.Therapists
+                             select b;
+
+            switch (sortOrder)
+            {
+                default:
+                    therapists = therapists.OrderBy(s => s.City);
+                    break;
+            }
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                therapists = therapists.Where(b => (b.TherapistName.Contains(searchString) || (b.TherapistName == null)) || (b.City.Contains(searchString) || (b.City == null)));
+            }
+
             if (User.IsInRole("User"))
                 return View("List");
             /*  else if (User.IsInRole("Therapist"))
