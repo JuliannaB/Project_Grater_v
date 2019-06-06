@@ -403,6 +403,8 @@
     <Content Include="Views\BeautyArticle\Create.cshtml" />
     <Content Include="Views\BeautyArticle\Edit.cshtml" />
     <Content Include="Views\BeautyArticle\Delete.cshtml" />
+    <Content Include="Views\Therapist\Index - Therapist.cshtml" />
+    <Content Include="Views\Therapist\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\ArticleComment\" />

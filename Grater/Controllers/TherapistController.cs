@@ -47,8 +47,6 @@ namespace Grater.Controllers
            }
 
            */
-
-
         public ActionResult Index(int? id, int? skillId)
         {
             var viewModel = new TherapistIndexData();
@@ -68,14 +66,14 @@ namespace Grater.Controllers
             if (skillId != null)
             {
                 ViewBag.SkillId = skillId.Value;
-                // Lazy loading
-                //viewModel.Enrollments = viewModel.Courses.Where(
-                //    x => x.CourseID == courseID).Single().Enrollments;
-                // Explicit loading
+     
                 var selectedSkills = viewModel.Skills.Where(x => x.SkillId == skillId).Single();
 
             }
-
+            if (User.IsInRole("User"))
+                return View("List");
+            /*  else if (User.IsInRole("Therapist"))
+                 return View("Therapist", "Index - Therapist");  */
             return View(viewModel);
         }
         private void PopulateAssignedSkillData(Therapist therapist)
@@ -165,7 +163,7 @@ namespace Grater.Controllers
                return View();
            }   */
 
-
+      
         [HttpGet]
         public ActionResult Create()
         {
@@ -180,46 +178,46 @@ namespace Grater.Controllers
         [HttpPost]
 
 
-     /*   public ActionResult Create(Therapist therapist)
-          {
-              string fileName = "default-user";
-              string extension = ".png";
+        /*   public ActionResult Create(Therapist therapist)
+             {
+                 string fileName = "default-user";
+                 string extension = ".png";
 
-              if (therapist.ImageFile != null)
-                  fileName = Path.GetFileNameWithoutExtension(therapist.ImageFile.FileName);
-              if (therapist.ImageFile != null)
-                  extension = Path.GetExtension(therapist.ImageFile.FileName);
-              if (therapist.ImageFile == null)
-              { fileName = "default-user.png"; }
-              else
-              { fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension; }
-              therapist.TherapistImagePath = "~/Image/" + fileName;
+                 if (therapist.ImageFile != null)
+                     fileName = Path.GetFileNameWithoutExtension(therapist.ImageFile.FileName);
+                 if (therapist.ImageFile != null)
+                     extension = Path.GetExtension(therapist.ImageFile.FileName);
+                 if (therapist.ImageFile == null)
+                 { fileName = "default-user.png"; }
+                 else
+                 { fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension; }
+                 therapist.TherapistImagePath = "~/Image/" + fileName;
 
-              if (therapist.ImageFile != null)
-                  fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
-              if (therapist.ImageFile != null)
-                  therapist.ImageFile.SaveAs(fileName);
+                 if (therapist.ImageFile != null)
+                     fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
+                 if (therapist.ImageFile != null)
+                     therapist.ImageFile.SaveAs(fileName);
 
-              var store = new UserStore<ApplicationUser, CustomRole, int, CustomUserLogin, CustomUserRole, CustomUserClaim>(_context);
-              var manager = new ApplicationUserManager(store);
+                 var store = new UserStore<ApplicationUser, CustomRole, int, CustomUserLogin, CustomUserRole, CustomUserClaim>(_context);
+                 var manager = new ApplicationUserManager(store);
 
-              int actUserId = User.Identity.GetUserId<int>();
-              ApplicationUser actUser = manager.FindById(actUserId);
-              actUser.Therapist = therapist;
-              manager.Update(actUser);
+                 int actUserId = User.Identity.GetUserId<int>();
+                 ApplicationUser actUser = manager.FindById(actUserId);
+                 actUser.Therapist = therapist;
+                 manager.Update(actUser);
 
-              {
+                 {
 
-                  ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
-              }
+                     ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
+                 }
 
 
-              ModelState.Clear();
-              return RedirectToAction("Details/" + therapist.TherapistId);
-          } */
+                 ModelState.Clear();
+                 return RedirectToAction("Details/" + therapist.TherapistId);
+             } */
 
-   
-               public ActionResult Create(Therapist therapist, string[] SelectedSkills) // dziala jak zloto, razem ze skillsami6 june
+
+        public ActionResult Create(Therapist therapist, string[] SelectedSkills) // dziala jak zloto, razem ze skillsami6 june
         {
             if (SelectedSkills != null)
             {
@@ -263,7 +261,7 @@ namespace Grater.Controllers
 
             PopulateAssignedSkillData(therapist);
             return RedirectToAction("Details/" + therapist.TherapistId);
-        } 
+        }
         /*   private void PopulateAssignedCourseData(Therapist therapist )
            {
                var allSkills = _context.Skills;
@@ -380,75 +378,32 @@ namespace Grater.Controllers
             }
             return RedirectToAction("Index");
         }
-       
-     
+
+
         [HttpGet]
 
-        /*      public ActionResult Edit(int? id)
+
+        public ActionResult Edit(int? id)
         {
-            int userLog = User.Identity.GetUserId<int>();
-            return RedirectToAction("Edit/" + userLog);
-        } */
-             public ActionResult Edit(int? id)
-             {
-                 if (id == null)
-                 {
-                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                 }
-                 Therapist therapist = _context.Therapists
-                 .Include(i => i.Skills)
-                    .Where(i => i.TherapistId == id)
-                    .Single();
-                       PopulateAssignedSkillData(therapist);
-                 if (therapist == null)
-                 {
-                     return HttpNotFound();
-                 }
-                 return View(therapist);
-             }
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Therapist therapist = _context.Therapists
+            .Include(i => i.Skills)
+               .Where(i => i.TherapistId == id)
+               .Single();
+            PopulateAssignedSkillData(therapist);
+            if (therapist == null)
+            {
+                return HttpNotFound();
+            }
+            return View(therapist);
+        }
 
-    /*
-             public ActionResult Edit(int? id)
-             {
-                 if (id == null)
-                 {
-                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                 }
-                 Therapist therapist = _context.Therapists.Find(id);
-                 if (therapist == null)
-                 {
-                     return HttpNotFound();
-                 }
-                 return View(therapist);
-             }
-
-
-             /*     [HttpPost]
-                  [ValidateAntiForgeryToken]
-                  public ActionResult Edit([Bind(Include = "TherapistName, PhoneNumber, City")] ApplicationUser user)
-                  {
-                      if (ModelState.IsValid)
-                      {
-                          _context.Entry(user).State = EntityState.Modified;
-
-
-                       /*   var store = new UserStore<ApplicationUser, CustomRole, int, CustomUserLogin, CustomUserRole, CustomUserClaim>(_context);
-                          var manager = new ApplicationUserManager(store);
-
-                          int actUserId = User.Identity.GetUserId<int>();
-                          ApplicationUser actUser = manager.FindById(actUserId);
-                          actUser.Therapist = therapist;
-                          manager.Update(actUser);
-
-                          _context.SaveChanges();
-                          return RedirectToAction("Index");
-                      }
-                      return View(user);
-                  }
-                  */
         [HttpPost]
         [ValidateAntiForgeryToken]
-     
+
         public ActionResult Edit(int? id, string[] selectedSkills)
         {
             if (id == null)
@@ -461,7 +416,7 @@ namespace Grater.Controllers
                .Single();
 
             if (TryUpdateModel(therapToUpdate, "",
-               new string[] { "TherapistName", "City", "Skills"}))
+               new string[] { "TherapistName", "City", "Skills" }))
             {
                 try
                 {
@@ -482,10 +437,6 @@ namespace Grater.Controllers
             PopulateAssignedSkillData(therapToUpdate);
             return View(therapToUpdate);
         }
-
-
-
-
 
         private void UpdateTherap(string[] selectedSkills, Therapist therapistUpdate)
         {
@@ -525,9 +476,6 @@ namespace Grater.Controllers
             }
             base.Dispose(disposing);
         }
-
-
-
 
     }
 }

@@ -9,7 +9,10 @@
 
 <h2>Therapist</h2>
 <p>
-   
+    @{
+        int userten = User.Identity.GetUserId<int>();
+    }
+    @Html.ActionLink("Edit", "Edit/" + userten)
     @Html.ActionLink("Create New", "Create")
     @* FormMetod.get i pirwsze proby zmiany testboxa to proba z piatku*@
 </p>
@@ -76,11 +79,7 @@
                         @*       @item.Skill.SkillBody *@
             </td>
 
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.TherapistId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.TherapistId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.TherapistId })
-            </td>
+           
         </tr>
     }
 </table>

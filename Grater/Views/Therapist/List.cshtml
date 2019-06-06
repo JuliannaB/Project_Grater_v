@@ -9,9 +9,8 @@
 
 <h2>Therapist</h2>
 <p>
-   
-    @Html.ActionLink("Create New", "Create")
-    @* FormMetod.get i pirwsze proby zmiany testboxa to proba z piatku*@
+
+
 </p>
 @using (Html.BeginForm("index", "therapist", FormMethod.Get))
 {
@@ -76,11 +75,7 @@
                         @*       @item.Skill.SkillBody *@
             </td>
 
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.TherapistId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.TherapistId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.TherapistId })
-            </td>
+           
         </tr>
     }
 </table>
