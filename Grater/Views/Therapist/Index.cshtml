@@ -1,4 +1,4 @@
-﻿@model Grater.ViewModels.TherapistIndexData
+﻿@model IEnumerable<Grater.Models.Therapist>
 @using Microsoft.AspNet.Identity
 
 
@@ -9,7 +9,7 @@
 
 <h2>Therapist</h2>
 <p>
-   
+
     @Html.ActionLink("Create New", "Create")
     @* FormMetod.get i pirwsze proby zmiany testboxa to proba z piatku*@
 </p>
@@ -19,7 +19,7 @@
         <tr>
             <th>Search by name:</th>
             <th>Search by city:</th>
-            <th>Search by phone number:</th>
+
         </tr>
         <tr>
             @* <td> @Html.TextBoxFor(m=>m.th)</td> *@
@@ -34,34 +34,31 @@
     </table>
 
 }
-<table class="table">
+<table class="table table-striped">
     <tr>
         <th>
-            @*     @Html.DisplayNameFor(model => model.TherapistName)
-                </th>
-
-                <th>
-                    @Html.DisplayNameFor(model => model.City)
-                </th>
-                <th>
-                    @*Html.DisplayNameFor(model => model.PhoneNumber)
-                </th>
-                <th>
-                    @*    @Html.DisplayNameFor(model => model.SkillName) *@
+            @Html.DisplayNameFor(model => model.TherapistName)
         </th>
-        <th></th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+
 
         <th></th>
     </tr>
 
 
-    @foreach (var item in Model.Therapists)
+    @foreach (var item in Model)
     {
         <tr>
 
             <td>
                 @Html.ActionLink(item.TherapistName, "Details", new { id = item.TherapistId }, null)
-              
+
             </td>
 
 
@@ -70,10 +67,10 @@
 
             </td>
             <td>
-                @*Html.DisplayFor(modelItem => item.PhoneNumber)
+                Html.DisplayFor(modelItem => item.PhoneNumber)
                     </td>
                     <td>
-                        @*       @item.Skill.SkillBody *@
+                      
             </td>
 
             <td>

@@ -3,10 +3,46 @@
     padding-bottom: 20px;
 }
 
+
+
+.footer {
+    position: fixed;
+    bottom: 10px;
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #510a5a;
+}
+
+#footer {
+    height: 260px;
+    background-color: #510a5a;
+    color: #ecf1f7;
+}
+
+.rejestr {
+    width: 40%;
+}
+
+.jumbotron {
+    padding: 5rem 4rem;
+    margin-top: 30px;
+    background-color: #720a7e;
+    color: #ecf1f7;
+}
+
+.navbar-inverse {
+    background-color: #510a5a;
+    border-color: #080808;
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+}
+
+dl {
+    margin-top: 0;
+    margin-bottom: 20px;
+    margin-right: 200px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -19,24 +55,20 @@
 .postBox {
     background-color: white;
     width: 300px;
-    
- 
 }
+
 .commentBox {
-    background-color: #C7BFE4;
+    background-color: #FEE7EF;
     padding: 10px;
     border-radius: 10px;
-  
-   
-
 }
 
-.starFade{
-    background-image:url('/Images/emptyS1.jpg');
-    min-width:26px;
-    min-height:26px;
-    display:inline-block;
-    cursor:pointer;
+.starFade {
+    background-image: url('/Images/emptyS1.jpg');
+    min-width: 26px;
+    min-height: 26px;
+    display: inline-block;
+    cursor: pointer;
 }
 
 .starFadeN {
@@ -53,21 +85,17 @@
     display: inline-block;
     cursor: pointer;
 }
+
 .starGlowN {
     background-image: url('/Images/fullSar1.jpg');
     min-width: 26px;
     min-height: 26px;
     display: inline-block;
 }
-footer{
-    padding-top: 100px;
-   max-width: 400px;
-   text-align:center;
-}
+
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
-select
- {
+select {
     max-width: 280px;
 }

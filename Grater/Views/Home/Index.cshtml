@@ -1,10 +1,42 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@using (Html.BeginForm())
-{
-    @* <img src="~/images/beauty.png" alt="Logo" width="450" style="vertical-align: central"/>  *@
-    <li>@Html.ActionLink("IndexMain", "IndexMain", "Article")</li>
-    <li>@Html.ActionLink("Job", "Index", "Job")</li>
-    <li>@Html.ActionLink("News", "Index", "News")</li>
-}
+
+<div class="jumbotron">
+    <h1>G<u>Rater</u></h1>
+    <p class="lead">
+        GRater is proud to offer well-paid, flexible work and our riders are at the heart of all that we do.
+        Their hard work powers our growth, and without them we would be unable to bring our customers the best
+        food on demand while helping great local restaurants to grow.
+
+    </p>
+    <p><a href="#" class="btn btn-outline-warning btn-lg">Would you like to know more? &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="card col-md-4" style="width: 18rem;">
+        <img class="card-img-top" src="~/Content/Images/33.jpg" alt="Therapist">
+        <div class="card-body">
+            <h5 class="card-title">Therapists</h5>
+            <p class="card-text">By constantly innovating and expanding, we offer the best choice and convenience.</p>
+            <a href="#" class="btn btn-sm btn-outline-dark">Join Us! <p>Rate and be rated!</p></a>
+        </div>
+    </div>
+    <div class="card col-md-4" style="width: 18rem;">
+        <img class="card-img-top" src="~/Content/Images/11.jpg" alt="Forum image">
+        <div class="card-body">
+            <h5 class="card-title">Forum</h5>
+            <p class="card-text">By offering fast and reliable delivery which the customer can track on their phone.</p>
+            <a href="#" class="btn btn-sm btn-outline-dark">See the list of therapists</a>
+        </div>
+    </div>
+    <div class="card col-md-4" style="width: 18rem;">
+        <img class="card-img-top" src="~/Content/Images/22.jpg" alt="Salons">
+        <div class="card-body">
+            <h5 class="card-title">Salons</h5>
+            <p class="card-text">Well-paid, flexible work and our riders are at the heart of all that we do.</p>
+            <a href="#" class="btn btn-sm btn-outline-dark">Check Beauty-Forum</a>
+        </div>
+    </div>
+</div>

@@ -23,7 +23,7 @@ namespace Grater
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap-cosmo.css",
+                      "~/Content/bootstrap.css",
                       "~/Content/site.css"));
         }
     }

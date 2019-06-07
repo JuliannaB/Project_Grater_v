@@ -33,7 +33,7 @@ namespace Grater.Models
         public bool Mobile { get; set; }
         [Display(Name = "Please find below where we can meet")]
         public string WhereMobile { get; set; }
-
+        [Display(Name = "Skills Description")]
         public string SkillDesc { get; set; }
         // public byte[] TherapistImage { get; set; }
            
