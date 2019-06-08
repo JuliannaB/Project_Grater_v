@@ -2,9 +2,34 @@
     padding-top: 50px;
     padding-bottom: 20px;
 }
+    
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #fff8f8;
+}
+
+.table1-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #e4f1fb;
+}
 
 
 
+
+.navbar-inverse .navbar-brand {
+    color: #FEE7EF;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #FEE7EF;
+}
+a {
+    color: #760d83;
+    text-decoration: none;
+}
+input[type="radio"],
+input[type="checkbox"] {
+    margin: 6px ;
+    margin-top: 1px \9;
+    line-height: normal;
+}
 .footer {
     position: fixed;
     bottom: 10px;
@@ -26,7 +51,7 @@
     padding: 5rem 4rem;
     margin-top: 30px;
     background-color: #720a7e;
-    color: #ecf1f7;
+    color: #FEE7EF;
 }
 
 .navbar-inverse {

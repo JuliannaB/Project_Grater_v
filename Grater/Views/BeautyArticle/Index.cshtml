@@ -9,11 +9,11 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table1-striped">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.ArticleTitle)
-        </th>   
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.ArticleBody)
         </th>
@@ -26,27 +26,28 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ArticleTitle)
-        </td>
-    
-        <td>
-            @Html.DisplayFor(modelItem => item.ArticleBody)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ThisDateTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Genre)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ArticleId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ArticleId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ArticleId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArticleTitle)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ArticleBody)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThisDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ArticleId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ArticleId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ArticleId })
+            </td>
+        </tr>
+    }
 
 </table>

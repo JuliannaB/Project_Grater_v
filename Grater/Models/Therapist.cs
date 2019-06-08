@@ -44,7 +44,8 @@ namespace Grater.Models
         public bool Active { get; set; }
 
         public int CreatedBy { get; set; }
-                
+        public double RatingAvg { get; set; }
+        public int RatingCount { get; set; }
         public virtual ICollection<Skill> Skills { get; set; }
     }
 }

@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table1-striped">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.ArticleTitle)
@@ -24,28 +24,29 @@
         <th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink(item.ArticleTitle, "Details", new { id = item.ArticleId }, null)
-            @Html.DisplayFor(modelItem => item.ThisDateTime)
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.ArticleTitle, "Details", new { id = item.ArticleId }, null)
+                @Html.DisplayFor(modelItem => item.ThisDateTime)
 
-        </td>
-    
-        <td>
-            @Html.DisplayFor(modelItem => item.WhereLastSeen)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.WhatSpeciality)
-        </td>
-       
-      
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ArticleId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ArticleId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ArticleId })
-        </td>
-    </tr>
-}
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.WhereLastSeen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WhatSpeciality)
+            </td>
+
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ArticleId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ArticleId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ArticleId })
+            </td>
+        </tr>
+    }
 
 </table>

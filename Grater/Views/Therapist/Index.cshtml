@@ -11,7 +11,7 @@
 <p>
 
     @Html.ActionLink("Create New", "Create")
-    @* FormMetod.get i pirwsze proby zmiany testboxa to proba z piatku*@
+
 </p>
 @using (Html.BeginForm("index", "therapist", FormMethod.Get))
 {
@@ -44,9 +44,11 @@
             @Html.DisplayNameFor(model => model.City)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
+            @Html.DisplayNameFor(model => model.RatingAvg)
         </th>
-
+        <th>
+            @Html.DisplayNameFor(model => model.RatingCount)
+        </th>
 
         <th></th>
     </tr>
@@ -67,17 +69,20 @@
 
             </td>
             <td>
-                Html.DisplayFor(modelItem => item.PhoneNumber)
-                    </td>
-                    <td>
-                      
+                @Html.DisplayFor(modelItem => item.RatingAvg)/5
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RatingCount)
+
             </td>
 
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.TherapistId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.TherapistId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.TherapistId })
-            </td>
+
+
+            @*  <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.TherapistId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.TherapistId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.TherapistId })
+                </td> *@
         </tr>
     }
 </table>

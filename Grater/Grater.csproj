@@ -259,6 +259,14 @@
     <Compile Include="Migrations\201906061519147_fds2.Designer.cs">
       <DependentUpon>201906061519147_fds2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906072002573_TherapistRateUpdate.cs" />
+    <Compile Include="Migrations\201906072002573_TherapistRateUpdate.Designer.cs">
+      <DependentUpon>201906072002573_TherapistRateUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906072018137_ratingChanges.cs" />
+    <Compile Include="Migrations\201906072018137_ratingChanges.Designer.cs">
+      <DependentUpon>201906072018137_ratingChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Article.cs" />
@@ -408,6 +416,7 @@
     <Content Include="Views\BeautyArticle\Delete.cshtml" />
     <Content Include="Views\Therapist\Index - Therapist.cshtml" />
     <Content Include="Views\Therapist\List.cshtml" />
+    <Content Include="Views\Account\_TherapistRegister.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\ArticleComment\" />
@@ -461,6 +470,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906061519147_fds2.resx">
       <DependentUpon>201906061519147_fds2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906072002573_TherapistRateUpdate.resx">
+      <DependentUpon>201906072002573_TherapistRateUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906072018137_ratingChanges.resx">
+      <DependentUpon>201906072018137_ratingChanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

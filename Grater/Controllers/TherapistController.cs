@@ -23,97 +23,7 @@ namespace Grater.Controllers
     {
         private ApplicationDbContext _context = new ApplicationDbContext();
 
-        //GET: Therapist/Index    Jest ok, przywrocic po usunieciu Radom
-        /*   public ViewResult Index(string sortOrder, string searchString)  // wylistowuje terapeutki, dodaje mozliwosc szukania
-           {
-               ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-
-               var therapists = from b in _context.Therapists
-                                select b;
-
-               switch (sortOrder)
-               {
-                   default:
-                       therapists = therapists.OrderBy(s => s.City);
-                       break;
-               }
-
-               if (!String.IsNullOrEmpty(searchString))
-               {
-                   therapists = therapists.Where(b => (b.TherapistName.Contains(searchString) || (b.TherapistName == null)) || (b.City.Contains(searchString) || (b.City == null)));
-               }
-
-               return View(therapists.ToList());
-           }
-
-           */
-
-        /*     public ActionResult Index (int? id, string searchString, string searchString1)
-             {
-
-                 var therapists = from b in _context.Therapists
-                                  select b;
-
-
-                 if (!string.IsNullOrEmpty(searchString))
-                 {
-                     therapists = therapists.Where(s => s.TherapistName.Contains(searchString));
-                 }
-
-                 if (!string.IsNullOrEmpty(searchString1))
-                 {
-                     therapists = therapists.Where(s => s.City.Contains(searchString1));
-                 }
-                 return View(therapists.ToList());
-             } */
-        /*   public ActionResult Index(string sortOrder, string searchString,  int? id, int? skillId)
-           {
-               var viewModel = new TherapistIndexData();
-
-               viewModel.Therapists = _context.Therapists
-                   .Include(i => i.Skills)
-                   .OrderBy(i => i.TherapistName);
-
-               if (id != null)
-               {
-                   ViewBag.TherapistId = id.Value;
-                   viewModel.Skills = viewModel.Therapists.Where(
-                       i => i.TherapistId == id.Value).Single().Skills;
-               }
-
-               if (skillId != null)
-               {
-                   ViewBag.SkillId = skillId.Value;
-
-                   var selectedSkills = viewModel.Skills.Where(x => x.SkillId == skillId).Single();
-
-               }
-
-               ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-
-               var therapists = from b in _context.Therapists
-                                select b;
-
-               switch (sortOrder)
-               {
-                   default:
-                       therapists = therapists.OrderBy(s => s.City);
-                       break;
-               }
-
-               if (!String.IsNullOrEmpty(searchString))
-               {
-                   therapists = therapists.Where(b => (b.TherapistName.Contains(searchString) || (b.TherapistName == null)) || (b.City.Contains(searchString) || (b.City == null)));
-               }
-
-               if (User.IsInRole("User"))
-                   return View("List");
-               /*  else if (User.IsInRole("Therapist"))
-                    return View("Therapist", "Index - Therapist");  
-               return View(viewModel);
-           }*/
-
-
+     
 
         public ViewResult Index(string sortOrder, string searchString, string searchString1)  // wylistowuje terapeutki, dodaje mozliwosc szukania
     {
@@ -122,13 +32,7 @@ namespace Grater.Controllers
         var therapists = from b in _context.Therapists
                          select b;
 
-        /*    switch (sortOrder)
-            {
-                default:
-                    therapists = therapists.OrderBy(s => s.City);
-                    break;
-            }
-             */
+       
         if (!String.IsNullOrEmpty(searchString) || !String.IsNullOrEmpty(searchString1))
         {
             //  therapists = therapists.Where(b => b.TherapistName.Contains(searchString)) || b.City.(searchString1);
@@ -385,6 +289,9 @@ namespace Grater.Controllers
                 ViewBag.RatingSum = ratingSum;
                 var ratingCount = ratings.Count();
                 ViewBag.RatingCount = ratingCount;
+                therapist.RatingCount = ratingCount;
+                therapist.RatingAvg = (double)ratingSum / (double)ratingCount;
+                _context.SaveChanges();
             }
             else
             {
@@ -394,10 +301,7 @@ namespace Grater.Controllers
 
             return View(therapist);
         }
-
-
-
-
+       
 
         [HttpGet]
 
@@ -480,8 +384,6 @@ namespace Grater.Controllers
             {
                 try
                 {
-
-
                     UpdateTherap(selectedSkills, therapToUpdate);
 
                     _context.SaveChanges();
