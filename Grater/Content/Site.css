@@ -89,7 +89,7 @@ dl {
 }
 
 .starFade {
-    background-image: url('/Images/emptyS1.jpg');
+    background-image: url('/Images/EmptyStar.png');
     min-width: 26px;
     min-height: 26px;
     display: inline-block;
@@ -97,14 +97,14 @@ dl {
 }
 
 .starFadeN {
-    background-image: url('/Images/emptyS1.jpg');
+    background-image: url('/Images/EmptyStar.png');
     min-width: 26px;
     min-height: 26px;
     display: inline-block;
 }
 
 .starGlow {
-    background-image: url('/Images/fullSar1.jpg');
+    background-image: url('/Images/FullStar.png');
     min-width: 26px;
     min-height: 26px;
     display: inline-block;
@@ -112,7 +112,7 @@ dl {
 }
 
 .starGlowN {
-    background-image: url('/Images/fullSar1.jpg');
+    background-image: url('/Images/FullStar.png');
     min-width: 26px;
     min-height: 26px;
     display: inline-block;

@@ -310,8 +310,10 @@
     <Content Include="Images\default-user.png" />
     <Content Include="Images\emptyS.jpg" />
     <Content Include="Images\emptyS1.jpg" />
+    <Content Include="Images\EmptyStar.png" />
     <Content Include="Images\fullSar.jpg" />
     <Content Include="Images\fullSar1.jpg" />
+    <Content Include="Images\FullStar.png" />
     <Content Include="Images\GRater Beauty%281%29.png" />
     <Content Include="Images\GRater Beauty.png" />
     <Content Include="Images\makeup.jpg" />
