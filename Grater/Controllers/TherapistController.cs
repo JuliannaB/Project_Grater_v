@@ -23,27 +23,29 @@ namespace Grater.Controllers
     {
         private ApplicationDbContext _context = new ApplicationDbContext();
 
-     
+
 
         public ViewResult Index(string sortOrder, string searchString, string searchString1)  // wylistowuje terapeutki, dodaje mozliwosc szukania
-    {
-        ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-
-        var therapists = from b in _context.Therapists
-                         select b;
-
-       
-        if (!String.IsNullOrEmpty(searchString) || !String.IsNullOrEmpty(searchString1))
         {
-            //  therapists = therapists.Where(b => b.TherapistName.Contains(searchString)) || b.City.(searchString1);
-            therapists = therapists.Where(b => b.TherapistName.Contains(searchString) || b.City.Contains(searchString1));
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+
+            var therapists = from b in _context.Therapists
+                             select b;
+
+
+            if (!String.IsNullOrEmpty(searchString) || !String.IsNullOrEmpty(searchString1))
+            {
+                //  therapists = therapists.Where(b => b.TherapistName.Contains(searchString)) || b.City.(searchString1);
+                therapists = therapists.Where(b => b.TherapistName.Contains(searchString) || b.City.Contains(searchString1));
+            }
+            return View(therapists.ToList());
         }
-        return View(therapists.ToList());
-    }
-    private void PopulateAssignedSkillData(Therapist therapist)
+        private void PopulateAssignedSkillData(Therapist therapist)
         {
             var allSkills = _context.Skills;
+
             var therapistSkills = new HashSet<int>(therapist.Skills.Select(c => c.SkillId));
+
             var viewModel = new List<AssignedSkillData>();
             foreach (var skill in allSkills)
             {
@@ -127,7 +129,7 @@ namespace Grater.Controllers
                return View();
            }   */
 
-      
+
         [HttpGet]
         public ActionResult Create()
         {
@@ -212,18 +214,27 @@ namespace Grater.Controllers
 
             var store = new UserStore<ApplicationUser, CustomRole, int, CustomUserLogin, CustomUserRole, CustomUserClaim>(_context);
             var manager = new ApplicationUserManager(store);
+          
+                    int actUserId = User.Identity.GetUserId<int>();
+                    ApplicationUser actUser = manager.FindById(actUserId);
+                    actUser.Therapist = therapist;
+                    manager.Update(actUser);
 
-            int actUserId = User.Identity.GetUserId<int>();
-            ApplicationUser actUser = manager.FindById(actUserId);
-            actUser.Therapist = therapist;
-            manager.Update(actUser);
-
+     
             {
 
                 ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
             }
 
-            PopulateAssignedSkillData(therapist);
+            try
+            {
+
+                PopulateAssignedSkillData(therapist);
+            }
+            catch (DataException /* dex */)
+            {
+
+            }
             return RedirectToAction("Details/" + therapist.TherapistId);
         }
         /*   private void PopulateAssignedCourseData(Therapist therapist )
@@ -301,7 +312,7 @@ namespace Grater.Controllers
 
             return View(therapist);
         }
-       
+
 
         [HttpGet]
 

@@ -11,10 +11,24 @@ using System.Web.Mvc;
 namespace Grater.Controllers
 {
     public class BeautyArticleController : Controller
-    { // GET: BeautyArticle
+    { 
 
         private ApplicationDbContext _context = new ApplicationDbContext();
         // GET: Article
+
+            public ActionResult AdminIndex(string sortOrder)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "articleTitle_desc" : "";
+            var beautyArticles = from s in _context.BeautyArticles
+                                 select s;
+            switch (sortOrder)
+            {
+                default:
+                    beautyArticles = beautyArticles.OrderBy(s => s.ArticleTitle);
+                    break;
+            }
+            return View(beautyArticles.ToList());
+        }
         public ActionResult Index(string sortOrder)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "articleTitle_desc" : "";

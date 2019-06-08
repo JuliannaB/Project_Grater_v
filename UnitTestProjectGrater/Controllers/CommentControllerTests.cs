@@ -20,7 +20,15 @@ namespace Grater.Controllers.Tests
             Assert.AreEqual(c.CommentContent, "to test comment content");
             Assert.AreEqual(c.Rating, 5);
             Assert.AreEqual(c.CommentTitle, "Title for test");
-
         }
+        /*[TestMethod()]
+         public void AddTestFakeData()  //Fake data, supposed to failed
+        {
+            Comment c = new Comment() { TherapistId = 1, CommentContent = "to test comment content", Rating = 5, CommentTitle = "Title for test" };
+            Assert.AreEqual(c.TherapistId, 2);
+            Assert.AreEqual(c.CommentContent, "Fake data test");
+            Assert.AreEqual(c.Rating, 5);
+            Assert.AreEqual(c.CommentTitle, "Title for test");
+        } */
     }
 }

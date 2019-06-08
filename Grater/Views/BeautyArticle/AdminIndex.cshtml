@@ -7,13 +7,9 @@
 <h2>Index</h2>
 
 <p>
-    @{ if (User.IsInRole("Admin"))
-        { @Html.ActionLink("Manage Page", "AdminIndex")}
-    }
-        
-    @{ if (User.IsInRole("Therapist"))
+    
         { @Html.ActionLink("Create New", "Create")}
-    }
+    
 
 </p>
 <table class="table table1-striped">
@@ -49,8 +45,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Genre)
             </td>
-         
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ArticleId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ArticleId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ArticleId })
+            </td>
         </tr>
     }
 
 </table>
+

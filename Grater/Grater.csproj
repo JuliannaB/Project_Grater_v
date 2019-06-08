@@ -419,6 +419,7 @@
     <Content Include="Views\Therapist\Index - Therapist.cshtml" />
     <Content Include="Views\Therapist\List.cshtml" />
     <Content Include="Views\Account\_TherapistRegister.cshtml" />
+    <Content Include="Views\BeautyArticle\AdminIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\ArticleComment\" />
