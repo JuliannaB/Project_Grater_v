@@ -10,6 +10,8 @@ namespace Grater.ViewModels
     {
         public IEnumerable<Skill> Skills { get; set; }
         public IEnumerable<Therapist> Therapists { get; set; }
+
+        public IEnumerable<Salon>Salons { get; set; }
        
     }
 }

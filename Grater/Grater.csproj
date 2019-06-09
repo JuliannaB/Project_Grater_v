@@ -271,10 +271,27 @@
     <Compile Include="Migrations\201906091441195_newsalonobj.Designer.cs">
       <DependentUpon>201906091441195_newsalonobj.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906091849561_salonchange.cs" />
+    <Compile Include="Migrations\201906091849561_salonchange.Designer.cs">
+      <DependentUpon>201906091849561_salonchange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906091854404_data.cs" />
+    <Compile Include="Migrations\201906091854404_data.Designer.cs">
+      <DependentUpon>201906091854404_data.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906091919475_update-dalon.cs" />
+    <Compile Include="Migrations\201906091919475_update-dalon.Designer.cs">
+      <DependentUpon>201906091919475_update-dalon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906092013344_relations.cs" />
+    <Compile Include="Migrations\201906092013344_relations.Designer.cs">
+      <DependentUpon>201906092013344_relations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\ArticleComment.cs" />
+    <Compile Include="Models\AssignedSalonData.cs" />
     <Compile Include="Models\AssignedSkillData.cs" />
     <Compile Include="Models\BeautyArticle.cs" />
     <Compile Include="Models\Comment.cs" />
@@ -490,6 +507,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906091441195_newsalonobj.resx">
       <DependentUpon>201906091441195_newsalonobj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906091849561_salonchange.resx">
+      <DependentUpon>201906091849561_salonchange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906091854404_data.resx">
+      <DependentUpon>201906091854404_data.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906091919475_update-dalon.resx">
+      <DependentUpon>201906091919475_update-dalon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906092013344_relations.resx">
+      <DependentUpon>201906092013344_relations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

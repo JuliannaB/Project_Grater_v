@@ -42,6 +42,25 @@ namespace Grater.Controllers
             ViewBag.Skills = viewModel;
         }
 
+        private void PopulateAssignedSalonData(Therapist therapist)
+        {
+            var allSalons = _context.Salons;
+
+            var therapistSalons = new HashSet<int>(therapist.Salons.Select(c => c.Id));
+
+            var viewModel = new List<AssignedSalonData>();
+            foreach (var salon in allSalons)
+            {
+                viewModel.Add(new AssignedSalonData
+                {
+                    Id = salon.Id,
+                    SalonName = salon.SalonName,
+                    Assigned = therapistSalons.Contains(salon.Id)
+                });
+            }
+            ViewBag.Salons = viewModel;
+        }
+
 
         public ViewResult Index(string sortOrder, string searchString)
         {
@@ -85,7 +104,9 @@ namespace Grater.Controllers
         {
             var therapist = new Therapist();
             therapist.Skills = new List<Skill>();
+            therapist.Salons = new List<Salon>();
             PopulateAssignedSkillData(therapist);
+            PopulateAssignedSalonData(therapist);
             return View();
         }
 
@@ -93,7 +114,7 @@ namespace Grater.Controllers
         // POST: /Create
         [HttpPost]
 
-        public ActionResult Create(Therapist therapist, string[] SelectedSkills) // dziala jak zloto, razem ze skillsami6 june
+        public ActionResult Create(Therapist therapist, string[] SelectedSkills, string[] SelectedSalons) // dziala jak zloto, razem ze skillsami6 june
         {
             if (SelectedSkills != null)
             {
@@ -102,6 +123,17 @@ namespace Grater.Controllers
                 {
                     var skillToAdd = _context.Skills.Find(int.Parse(skill));
                     therapist.Skills.Add(skillToAdd);
+                }
+            }
+
+
+            if (SelectedSalons != null)
+            {
+                therapist.Salons = new List<Salon>();
+                foreach (var salon in SelectedSalons)
+                {
+                    var salonToAdd = _context.Salons.Find(int.Parse(salon));
+                    therapist.Salons.Add(salonToAdd) ;
                 }
             }
             string fileName = "default-user";
@@ -138,7 +170,7 @@ namespace Grater.Controllers
 
             try
             {
-
+                PopulateAssignedSalonData(therapist);
                 PopulateAssignedSkillData(therapist);
             }
             catch (DataException /* dex */)
@@ -240,8 +272,11 @@ namespace Grater.Controllers
             }
             Therapist therapist = _context.Therapists
             .Include(i => i.Skills)
+            .Include(i => i.Salons)
                .Where(i => i.TherapistId == id)
+               .Include(i => i.Salons)
                .Single();
+            PopulateAssignedSalonData(therapist);
             PopulateAssignedSkillData(therapist);
             if (therapist == null)
             {
@@ -253,7 +288,7 @@ namespace Grater.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public ActionResult Edit(int? id, string[] selectedSkills)
+        public ActionResult Edit(int? id, string[] selectedSkills, string [] selectedSalons)
         {
             if (id == null)
             {
@@ -261,6 +296,7 @@ namespace Grater.Controllers
             }
             var therapToUpdate = _context.Therapists
                 .Include(i => i.Skills)
+                .Include(i =>i.Salons)
                .Where(i => i.TherapistId == id)
                .Single();
 
@@ -269,7 +305,7 @@ namespace Grater.Controllers
             {
                 try
                 {
-                    UpdateTherap(selectedSkills, therapToUpdate);
+                    UpdateTherap(selectedSkills, selectedSalons, therapToUpdate);
 
                     _context.SaveChanges();
 
@@ -281,11 +317,12 @@ namespace Grater.Controllers
                     ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
                 }
             }
+            PopulateAssignedSalonData(therapToUpdate);
             PopulateAssignedSkillData(therapToUpdate);
             return View(therapToUpdate);
         }
 
-        private void UpdateTherap(string[] selectedSkills, Therapist therapistUpdate)
+        private void UpdateTherap(string[] selectedSkills, string[] selectedSalons, Therapist therapistUpdate)
         {
             if (selectedSkills == null)
             {

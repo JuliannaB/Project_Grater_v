@@ -1,10 +1,12 @@
 ﻿using Grater.Models;
+using Grater.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace Grater.Controllers
 {
@@ -13,9 +15,23 @@ namespace Grater.Controllers
 
         private ApplicationDbContext _context = new ApplicationDbContext();
         // GET: Salon
-        public ActionResult Index()
+        public ActionResult Index(int? id, int? therapistId)
         {
-            return View();
+            var viewModel = new TherapistIndexData();
+
+            viewModel.Salons = _context.Salons
+                    .Include(i => i.Therapists)
+                .OrderBy(i => i.SalonName);
+
+
+            if (id != null)
+            {
+                ViewBag.Id = id.Value;
+                viewModel.Therapists = viewModel.Salons.Where(
+                    i => i.Id == id.Value).Single().Therapists;
+            }
+                
+            return View(viewModel);
         }
 
         public ActionResult Detail()

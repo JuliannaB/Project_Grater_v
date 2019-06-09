@@ -20,14 +20,14 @@
 
 <div class="row">
     <div class="col-lg-offset-11">
-   
+
     </div>
 
 </div>
-@*
+
 <div>
     <span class="starFadeN" id="sRate1"></span><span class="starFadeN" id="sRate2"></span><span class="starFadeN" id="sRate3"></span><span class="starFadeN" id="sRate4"></span><span class="starFadeN" id="sRate5"></span>
-</div>*@
+</div>
 <div>
     <dl class="dl-horizontal"></dl>
 </div>
@@ -55,7 +55,7 @@
 
         <img src="@Url.Content(Model.TherapistImagePath)" class="  img-circle" width="250" height="250" />
         <div class="row">
-      
+
 
         </div>
     </div>
@@ -123,6 +123,24 @@
     </dl>
 </div>
 <hr />
+@{
+    foreach (var skill in Model.Skills)
+    {
+        @skill.SkillName <p>
+
+        </p>
+
+    }
+}
+@{
+    foreach (var salon in Model.Salons)
+    {
+        @salon.SalonName <p>
+
+        </p>
+
+    }
+}
 @Html.Partial("_CommentBox")
 
 
@@ -154,15 +172,7 @@
     </div>
 
 }
-@{
-    foreach (var skill in Model.Skills)
-    {
-         @skill.SkillName <p>
-    
-    </p>
 
-    }
-}
 
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.TherapistId }) |

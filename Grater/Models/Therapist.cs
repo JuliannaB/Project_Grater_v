@@ -47,5 +47,6 @@ namespace Grater.Models
         public double RatingAvg { get; set; }
         public int RatingCount { get; set; }
         public virtual ICollection<Skill> Skills { get; set; }
+        public virtual ICollection<Salon> Salons { get; set; }
     }
 }

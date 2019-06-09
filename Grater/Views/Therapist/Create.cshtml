@@ -103,40 +103,69 @@
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-                <table>
-                <tr> 
+            <table>
+                <tr>
                     @{
                         int cnt = 0;
                         List<Grater.Models.AssignedSkillData> skills = ViewBag.Skills;
 
                         foreach (var skill in skills)
-                        { 
+                        {
                             if (cnt++ % 3 == 0)
                             {
                             @:</tr><tr>
                             }
                             @:<td>
-                         
+
                                 <input type="checkbox"
                                        name="SelectedSkills"
                                        value="@skill.SkillId"
                                        @(Html.Raw(skill.Assigned ? "checked=\"checked\"" : "")) />
-                                @:  @skill.SkillName 
+                                @:  @skill.SkillName
                             @:</td>
                         }
-                    @:</tr> 
+                    @:</tr>
                     }
                 </table>
+            </div>
         </div>
-    </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <table>
+                    <tr>
+                        @{
+                            int cont = 0;
+                            List<Grater.Models.AssignedSalonData> salons = ViewBag.Salons;
+
+                            foreach (var salon in salons)
+                            {
+                                if (cont++ % 3 == 0)
+                                {
+                                @:</tr><tr>
+                                }
+                                @:<td>
+
+                                    <input type="radio"
+                                           name="SelectedSalons"
+                                           value="@salon.Id"
+                                           @(Html.Raw(salon.Assigned ? "checked=\"checked\"" : "")) />
+                                    @:  @salon.SalonName
+                                @:</td>
+                            }
+                        @:</tr>
+                        }
+                    </table>
+                </div>
+            </div>
 
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 }
 
 <div>
