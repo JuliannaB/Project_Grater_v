@@ -19,9 +19,8 @@ namespace Grater.Controllers.Tests
             Assert.AreEqual(t.TherapistId, 1);
             Assert.AreEqual(t.TherapistName, "Aleksandra");
             Assert.AreEqual(t.TherapistSurname, "McCartney");
-         //   Assert.Fail();
+            //   Assert.Fail();
         }
-
 
     }
 }

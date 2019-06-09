@@ -31,8 +31,7 @@
             @* <td> @Html.TextBoxFor(m=>m.th)</td> *@
 
             <td> @Html.TextBox("searchString")</td>
-            <td> @Html.TextBox("searchString1")</td>
-        </tr>
+             </tr>
         <tr>
             <td> <input type="submit" value="Search" />   @*value - label*@</td>
 
@@ -43,15 +42,17 @@
 <table class="table table-striped">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.TherapistName)
+            @Html.ActionLink("Therapist Name", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
 
         <th>
-            @Html.DisplayNameFor(model => model.City)
+            @Html.ActionLink("City", "Index", new { sortOrder = ViewBag.CitySortParm })
         </th>
+ 
         <th>
-            @Html.DisplayNameFor(model => model.RatingAvg)
+            @Html.ActionLink("Raiting", "Index", new { sortOrder = ViewBag.AvgSortParm })
         </th>
+
         <th>
             @Html.DisplayNameFor(model => model.RatingCount)
         </th>

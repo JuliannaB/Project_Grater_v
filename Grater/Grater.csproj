@@ -267,6 +267,10 @@
     <Compile Include="Migrations\201906072018137_ratingChanges.Designer.cs">
       <DependentUpon>201906072018137_ratingChanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906091441195_newsalonobj.cs" />
+    <Compile Include="Migrations\201906091441195_newsalonobj.Designer.cs">
+      <DependentUpon>201906091441195_newsalonobj.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Article.cs" />
@@ -311,6 +315,7 @@
     <Content Include="Images\emptyS.jpg" />
     <Content Include="Images\emptyS1.jpg" />
     <Content Include="Images\EmptyStar.png" />
+    <Content Include="Images\forum.png" />
     <Content Include="Images\fullSar.jpg" />
     <Content Include="Images\fullSar1.jpg" />
     <Content Include="Images\FullStar.png" />
@@ -321,8 +326,11 @@
     <Content Include="Images\pro.jpg" />
     <Content Include="Images\RATE.png" />
     <Content Include="Images\red.jpg" />
+    <Content Include="Images\register g.png" />
+    <Content Include="Images\spa.png" />
     <Content Include="Images\StarFade.gif" />
     <Content Include="Images\StarGlow.gif" />
+    <Content Include="Images\therapist.png" />
     <Content Include="Images\wanted.jpg" />
     <Content Include="Image\default-user.png" />
     <Content Include="Scripts\bootstrap.js" />
@@ -479,6 +487,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906072018137_ratingChanges.resx">
       <DependentUpon>201906072018137_ratingChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906091441195_newsalonobj.resx">
+      <DependentUpon>201906091441195_newsalonobj.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
