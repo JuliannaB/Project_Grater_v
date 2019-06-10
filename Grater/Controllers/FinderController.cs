@@ -29,6 +29,22 @@ namespace Grater.Controllers
             }
             return View(finders.ToList());
         }
+
+        public ActionResult AdminIndex(string sortOrder)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "articleTitle_desc" : "";
+            var finders = from s in _context.Finders
+                                 select s;
+            switch (sortOrder)
+            {
+                default:
+                    finders = finders.OrderBy(s => s.ArticleTitle);
+                    break;
+            }
+            return View(finders.ToList());
+        }
+
+
         // GET: Finder/Details/5
         public ActionResult Details(int? id)    //Wchodzimy do view details, po klikieciu na imie. Dziala ok
         {

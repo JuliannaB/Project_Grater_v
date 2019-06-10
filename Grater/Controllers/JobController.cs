@@ -28,7 +28,19 @@ namespace Grater.Controllers
             }
             return View(jobs.ToList());
         }
-
+        public ActionResult AdminIndex(string sortOrder)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "articleTitle_desc" : "";
+            var jobs = from s in _context.Jobs
+                                 select s;
+            switch (sortOrder)
+            {
+                default:
+                    jobs = jobs.OrderBy(s => s.ArticleTitle);
+                    break;
+            }
+            return View(jobs.ToList());
+        }
 
 
         // GET: Job/Details/5

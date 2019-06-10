@@ -19,6 +19,7 @@ namespace Grater.Models
 
         public string ByWho { get; set; }
         public int? Rating { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? ThisDateTime { get; set; }
         public Article Article  { get; set; }  //FK to Article
         public int ArticleId { get; set; }     //FK to Article

@@ -29,7 +29,19 @@ namespace Grater.Controllers
             return View(events.ToList());
         }
 
-
+        public ActionResult AdminIndex(string sortOrder)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "articleTitle_desc" : "";
+            var events = from s in _context.Events
+                                 select s;
+            switch (sortOrder)
+            {
+                default:
+                    events = events.OrderBy(s => s.ArticleTitle);
+                    break;
+            }
+            return View(events.ToList());
+        }
         // GET: Event/Details/5
         public ActionResult Details(int? id)    
         {

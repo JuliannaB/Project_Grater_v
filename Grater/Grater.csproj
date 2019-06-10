@@ -287,6 +287,14 @@
     <Compile Include="Migrations\201906092013344_relations.Designer.cs">
       <DependentUpon>201906092013344_relations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906101207307_moreInDb.cs" />
+    <Compile Include="Migrations\201906101207307_moreInDb.Designer.cs">
+      <DependentUpon>201906101207307_moreInDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906101227082_addedWho.cs" />
+    <Compile Include="Migrations\201906101227082_addedWho.Designer.cs">
+      <DependentUpon>201906101227082_addedWho.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Article.cs" />
@@ -445,6 +453,10 @@
     <Content Include="Views\Therapist\List.cshtml" />
     <Content Include="Views\Account\_TherapistRegister.cshtml" />
     <Content Include="Views\BeautyArticle\AdminIndex.cshtml" />
+    <Content Include="Views\Salon\AdminIndex.cshtml" />
+    <Content Include="Views\Event\AdminIndex.cshtml" />
+    <Content Include="Views\Finder\AdminIndex.cshtml" />
+    <Content Include="Views\Job\AdminIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\ArticleComment\" />
@@ -519,6 +531,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906092013344_relations.resx">
       <DependentUpon>201906092013344_relations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906101207307_moreInDb.resx">
+      <DependentUpon>201906101207307_moreInDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906101227082_addedWho.resx">
+      <DependentUpon>201906101227082_addedWho.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

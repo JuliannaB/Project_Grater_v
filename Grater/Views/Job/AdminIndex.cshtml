@@ -1,10 +1,11 @@
-﻿@model IEnumerable<Grater.Models.Job>
+﻿
+@model IEnumerable<Grater.Models.Job>
 
 @{
     ViewBag.Title = "Job Offers";
 }
 
-<h2>Job Offers</h2>
+<h2>Job Offers, Admin</h2>
 @{ if (User.IsInRole("Admin"))
     { @Html.ActionLink("Manage Page", "AdminIndex")}
 }
@@ -36,20 +37,13 @@
                 @Html.DisplayFor(modelItem => item.Localization)
             </td>
 
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ArticleId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ArticleId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ArticleId })
+            </td>
         </tr>
     }
 
 </table>
-
-
-
-
-
-
-
-
-
-
-
-
-

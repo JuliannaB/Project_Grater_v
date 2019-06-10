@@ -1,10 +1,11 @@
-﻿@model IEnumerable<Grater.Models.Finder>
+﻿
+@model IEnumerable<Grater.Models.Event>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Find your Therapist</h2>
+<h2>Event's</h2>
 @{ if (User.IsInRole("Admin"))
     { @Html.ActionLink("Manage Page", "AdminIndex")}
 }
@@ -16,14 +17,14 @@
         <th>
             @Html.DisplayNameFor(model => model.ArticleTitle)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventDate)
+        </th>
 
-        <th>
-            @Html.DisplayNameFor(model => model.WhereLastSeen)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.WhatSpeciality)
-        </th>
-        <th>
+        <th></th>
     </tr>
 
     @foreach (var item in Model)
@@ -34,16 +35,19 @@
                 @Html.DisplayFor(modelItem => item.ThisDateTime)
 
             </td>
-
             <td>
-                @Html.DisplayFor(modelItem => item.WhereLastSeen)
+                @Html.DisplayFor(modelItem => item.EventCity)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.WhatSpeciality)
+                @Html.DisplayFor(modelItem => item.EventDate)
             </td>
 
 
-
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ArticleId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ArticleId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ArticleId })
+            </td>
         </tr>
     }
 

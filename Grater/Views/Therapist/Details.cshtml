@@ -62,6 +62,13 @@
 
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.RatingAvg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RatingAvg)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.TherapistName)
         </dt>
 
@@ -97,11 +104,11 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Description)
+            @Html.DisplayFor(model => model.Description)  <br />
         </dd>
 
-
-
+       
+        <dd> <br /></dd>
 
 
         @if (Model.Mobile == true)
@@ -123,36 +130,33 @@
     </dl>
 </div>
 <hr />
-@{
-    foreach (var skill in Model.Skills)
-    {
-        @skill.SkillName <p>
+<div class="col-lg-offset-2">
 
-        </p>
+    <u> Main skills:</u><p></p>
+    @{
+        foreach (var skill in Model.Skills)
+        {
+        <b>  @skill.SkillName </b><p>
 
+            </p>
+
+        }
     }
-}
-@{
-    foreach (var salon in Model.Salons)
-    {
-        @salon.SalonName <p>
-
-        </p>
-
-    }
-}
+    @Html.DisplayFor(model => model.SkillDesc)
+</div>
 @Html.Partial("_CommentBox")
 
 
 
 @foreach (var c in commentContent)
-{
+{<br />
     <hr />
 
     <div class="row">
 
         <div class=" col-md-9">
             <i>@c.ThisDateTime</i>
+            <i>@c.ByWho</i>
             <br />
             @for (var i = 1; i <= c.Rating; i++)
             {
@@ -175,7 +179,7 @@
 
 
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.TherapistId }) |
+
     @Html.ActionLink("Back to List", "Index")
 </p>
 

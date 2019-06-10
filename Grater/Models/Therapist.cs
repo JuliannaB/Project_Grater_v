@@ -16,7 +16,7 @@ namespace Grater.Models
 
         [Required]
         public virtual ApplicationUser User { get; set; }
-        
+
         [Required]
         [Display(Name = "Name")]
         public string TherapistName { get; set; }
@@ -36,7 +36,7 @@ namespace Grater.Models
         [Display(Name = "Skills Description")]
         public string SkillDesc { get; set; }
         // public byte[] TherapistImage { get; set; }
-           
+
         public string TherapistImagePath { get; set; }
         [NotMapped]
         public HttpPostedFileBase ImageFile { get; set; }
@@ -44,7 +44,10 @@ namespace Grater.Models
         public bool Active { get; set; }
 
         public int CreatedBy { get; set; }
+        [Display(Name = "Rating")]
+    
         public double RatingAvg { get; set; }
+        [Display(Name ="Number of voices")]
         public int RatingCount { get; set; }
         public virtual ICollection<Skill> Skills { get; set; }
         public virtual ICollection<Salon> Salons { get; set; }

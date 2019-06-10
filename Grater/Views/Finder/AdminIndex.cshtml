@@ -1,13 +1,12 @@
-﻿@model IEnumerable<Grater.Models.Finder>
+﻿
+@model IEnumerable<Grater.Models.Finder>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Admin";
 }
 
 <h2>Find your Therapist</h2>
-@{ if (User.IsInRole("Admin"))
-    { @Html.ActionLink("Manage Page", "AdminIndex")}
-}
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -43,7 +42,11 @@
             </td>
 
 
-
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ArticleId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ArticleId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ArticleId })
+            </td>
         </tr>
     }
 

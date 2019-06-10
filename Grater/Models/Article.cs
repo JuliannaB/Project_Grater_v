@@ -13,7 +13,7 @@ namespace Grater.Models
         public string ArticleTitle { get; set; }
         [Display(Name ="Added by: ")]
         public string WhoAdd { get; set; }
-        [Display(Name ="Article")]
+        [Display(Name ="Main Content")]
         public string ArticleBody { get; set; }
         [Display(Name = "Created date")]
             public DateTime? ThisDateTime { get; set; }

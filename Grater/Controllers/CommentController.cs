@@ -27,7 +27,9 @@ namespace Grater.Controllers
                 TherapistId = therapistId,
                 CommentContent = commentContent,
                 Rating = rating,
+                ByWho = User.Identity.Name,
                 ThisDateTime = DateTime.Now
+
             };
 
             _context.Comments.Add(therComment);

@@ -15,6 +15,7 @@ using System.Runtime.Remoting.Contexts;
 using Microsoft.Ajax.Utilities;
 using Microsoft.Owin;
 
+
 namespace Grater.Controllers
 {
     //   [Authorize]
@@ -33,6 +34,18 @@ namespace Grater.Controllers
             UserManager = userManager;
             SignInManager = signInManager;
         }
+
+
+       /* [HttpPost]
+        public JsonResult FacebookLogin(FacebookLoginModel model)
+        {
+            Session["uid"] = model.uid;
+            Session["accessToken"] = model.accessToken;
+
+            return Json(new { success = true });
+        }
+        */
+
 
         public ApplicationSignInManager SignInManager
         {
