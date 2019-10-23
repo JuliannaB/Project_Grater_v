@@ -295,6 +295,10 @@
     <Compile Include="Migrations\201906101227082_addedWho.Designer.cs">
       <DependentUpon>201906101227082_addedWho.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907022024002_n.cs" />
+    <Compile Include="Migrations\201907022024002_n.Designer.cs">
+      <DependentUpon>201907022024002_n.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Article.cs" />
@@ -537,6 +541,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906101227082_addedWho.resx">
       <DependentUpon>201906101227082_addedWho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907022024002_n.resx">
+      <DependentUpon>201907022024002_n.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

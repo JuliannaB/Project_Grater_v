@@ -38,8 +38,18 @@ namespace Grater.Controllers.Tests
 
 
         }
+        [TestMethod()]
 
+        public void AddSalonTest()
+        {
+            Salon s = new Salon() { Id = 1, City = "Dublin", Address = "Atlantic City", SalonName = "Beuty you" };
+            Assert.AreEqual(s.Id, 1);
+            Assert.AreEqual(s.City, "Dublin");
+            Assert.AreEqual(s.Address, "Atlantic City");
+            Assert.AreEqual(s.SalonName, "Beuty you");
+        }
         /*[TestMethod()]
+         * }
          public void AddTestFakeData()  //Fake data, supposed to failed
         {
             Comment c = new Comment() { TherapistId = 1, CommentContent = "to test comment content", Rating = 5, CommentTitle = "Title for test" };

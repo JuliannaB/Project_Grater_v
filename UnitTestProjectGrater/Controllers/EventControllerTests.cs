@@ -23,7 +23,19 @@ namespace Grater.Controllers.Tests
             Assert.AreEqual(e.EventCity, "Dublin");
             Assert.AreEqual(e.WhoAdd, "Sony@gmail.com");
           
-           
+        }
+
+        [TestMethod()]
+        public void CreateFinderTest()
+        {
+            Finder f = new Finder() { ArticleId = 2, ArticleBody = "Great beauty Mvc Applicationns", ArticleTitle = "abuut B?",  WhatSpeciality="Make up artist", WhoAdd = "artem@gmail.com" };
+            Assert.IsInstanceOfType(f, typeof(Finder));
+            Assert.AreEqual(f.ArticleId, 2);
+            Assert.AreEqual(f.ArticleBody, "Great beauty Mvc Applicationns");
+            Assert.AreEqual(f.ArticleTitle, "abuut B?");
+            Assert.AreEqual(f.WhatSpeciality, "Make up artist");
+            Assert.AreEqual(f.WhoAdd, "artem@gmail.com");
+
         }
     }
 }
