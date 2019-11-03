@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Web.UI.WebControls;
 using Grater.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Grater.Controllers
 {
@@ -21,13 +22,14 @@ namespace Grater.Controllers
             var commentContent = form["CommentContent"].ToString();
             var therapistId = int.Parse(form["TherapistId"]);
             var rating = int.Parse(form["Rating"]);
-
+            var WhoAddInt = User.Identity.GetUserId<int>();
             Comment therComment = new Comment()
             {
                 TherapistId = therapistId,
                 CommentContent = commentContent,
                 Rating = rating,
                 ByWho = User.Identity.Name,
+                ByWhoIn = WhoAddInt,
                 ThisDateTime = DateTime.Now
 
             };

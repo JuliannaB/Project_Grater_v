@@ -133,7 +133,7 @@ namespace Grater.Controllers
                 foreach (var salon in SelectedSalons)
                 {
                     var salonToAdd = _context.Salons.Find(int.Parse(salon));
-                    therapist.Salons.Add(salonToAdd) ;
+                    therapist.Salons.Add(salonToAdd);
                 }
             }
             string fileName = "default-user";
@@ -196,12 +196,16 @@ namespace Grater.Controllers
                 return HttpNotFound();
             }
 
+
             ViewBag.TherapistId = id.Value;
 
             var commentContent = _context.Comments.Where(d => d.TherapistId.Equals(id.Value)).ToList();
             ViewBag.CommentContent = commentContent;
 
             var ratings = _context.Comments.Where(d => d.TherapistId.Equals(id.Value)).ToList();
+
+
+
             if (ratings.Count() > 0)
             {
                 var ratingSum = ratings.Sum(d => d.Rating.Value);
@@ -218,9 +222,37 @@ namespace Grater.Controllers
                 ViewBag.RatingCount = 0;
             }
 
+            bool wynik;
+        
+           
+            if (CheciIfExist(therapist.TherapistId))
+            { wynik = true; }
+
+            else
+            { wynik = false; }
+
+
+            ViewBag.WynikMetody = wynik;
             return View(therapist);
         }
 
+        public bool CheciIfExist(int WhoGet)
+
+        {
+            ViewBag.TherapistId = WhoGet;
+
+            var WhoAdd = User.Identity.GetUserId<int>();
+            var answer = _context.Comments.Where(d => d.ByWhoIn == WhoAdd && d.TherapistId == WhoGet );
+
+
+            if (answer.Any())
+
+            {
+                return false;
+            }
+            return true;
+
+        }
 
         [HttpGet]
 
@@ -288,7 +320,7 @@ namespace Grater.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public ActionResult Edit(int? id, string[] selectedSkills, string [] selectedSalons)
+        public ActionResult Edit(int? id, string[] selectedSkills, string[] selectedSalons)
         {
             if (id == null)
             {
@@ -296,7 +328,7 @@ namespace Grater.Controllers
             }
             var therapToUpdate = _context.Therapists
                 .Include(i => i.Skills)
-                .Include(i =>i.Salons)
+                .Include(i => i.Salons)
                .Where(i => i.TherapistId == id)
                .Single();
 

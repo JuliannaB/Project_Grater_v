@@ -62,7 +62,7 @@ namespace Grater.Models
         public object Images { get; internal set; }
       
         public ApplicationDbContext()
-            : base("AzureTest1")
+            : base("AzureTest11")
         {
             
         }

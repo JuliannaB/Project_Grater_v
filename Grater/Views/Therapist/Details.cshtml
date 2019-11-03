@@ -107,7 +107,7 @@
             @Html.DisplayFor(model => model.Description)  <br />
         </dd>
 
-       
+
         <dd> <br /></dd>
 
 
@@ -136,7 +136,7 @@
     @{
         foreach (var skill in Model.Skills)
         {
-        <b>  @skill.SkillName </b><p>
+            <b>  @skill.SkillName </b><p>
 
             </p>
 
@@ -144,7 +144,15 @@
     }
     @Html.DisplayFor(model => model.SkillDesc)
 </div>
-@Html.Partial("_CommentBox")
+
+@{
+    
+    if (ViewBag.WynikMetody)
+    {
+        @Html.Partial("_CommentBox")
+    }
+
+}
 
 
 

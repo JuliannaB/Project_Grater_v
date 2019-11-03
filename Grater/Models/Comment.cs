@@ -16,6 +16,7 @@ namespace Grater.Models
         public string CommentContent { get; set; }
 
         public string ByWho { get; set; }
+        public int ByWhoIn { get; set; }
         public int? Rating { get; set; }
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? ThisDateTime { get; set; }

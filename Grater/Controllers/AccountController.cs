@@ -100,7 +100,7 @@ namespace Grater.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
-            this.IsCaptchaValid("Captcha is not valid");
+           // this.IsCaptchaValid("Captcha is not valid");
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -183,7 +183,7 @@ namespace Grater.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
-            this.IsCaptchaValid("Captcha is not valid");
+           // this.IsCaptchaValid("Captcha is not valid");
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
@@ -247,7 +247,7 @@ namespace Grater.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> RegisterTherapist(RegisterViewModel model)
         {
-            this.IsCaptchaValid("Captcha is not valid");
+        //    this.IsCaptchaValid("Captcha is not valid");
             if (ModelState.IsValid)
             {
                 //  var store = new UserStore<ApplicationUser>(new ApplicationDbContext());

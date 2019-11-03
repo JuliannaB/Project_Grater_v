@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.Net.Compilers.3.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.3.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.3.3.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.3.3.1\build\Microsoft.Net.Compilers.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -211,89 +211,25 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201906042244530_string.cs" />
-    <Compile Include="Migrations\201906042244530_string.Designer.cs">
-      <DependentUpon>201906042244530_string.cs</DependentUpon>
+    <Compile Include="Migrations\201910312040548_letsTry.cs" />
+    <Compile Include="Migrations\201910312040548_letsTry.Designer.cs">
+      <DependentUpon>201910312040548_letsTry.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201906051501204_jj.cs" />
-    <Compile Include="Migrations\201906051501204_jj.Designer.cs">
-      <DependentUpon>201906051501204_jj.cs</DependentUpon>
+    <Compile Include="Migrations\201911021433079_addByWhoInt.cs" />
+    <Compile Include="Migrations\201911021433079_addByWhoInt.Designer.cs">
+      <DependentUpon>201911021433079_addByWhoInt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201906051528304_addedbart.cs" />
-    <Compile Include="Migrations\201906051528304_addedbart.Designer.cs">
-      <DependentUpon>201906051528304_addedbart.cs</DependentUpon>
+    <Compile Include="Migrations\201911021437378_newid.cs" />
+    <Compile Include="Migrations\201911021437378_newid.Designer.cs">
+      <DependentUpon>201911021437378_newid.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201906052010043_fd.cs" />
-    <Compile Include="Migrations\201906052010043_fd.Designer.cs">
-      <DependentUpon>201906052010043_fd.cs</DependentUpon>
+    <Compile Include="Migrations\201911021520022_addSkilllsss.cs" />
+    <Compile Include="Migrations\201911021520022_addSkilllsss.Designer.cs">
+      <DependentUpon>201911021520022_addSkilllsss.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201906052107519_new.cs" />
-    <Compile Include="Migrations\201906052107519_new.Designer.cs">
-      <DependentUpon>201906052107519_new.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906052110592_fdfs.cs" />
-    <Compile Include="Migrations\201906052110592_fdfs.Designer.cs">
-      <DependentUpon>201906052110592_fdfs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906052112240_dsda.cs" />
-    <Compile Include="Migrations\201906052112240_dsda.Designer.cs">
-      <DependentUpon>201906052112240_dsda.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906052118575_fds.cs" />
-    <Compile Include="Migrations\201906052118575_fds.Designer.cs">
-      <DependentUpon>201906052118575_fds.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906052119499_fds1.cs" />
-    <Compile Include="Migrations\201906052119499_fds1.Designer.cs">
-      <DependentUpon>201906052119499_fds1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906061027434_ndsfndsj.cs" />
-    <Compile Include="Migrations\201906061027434_ndsfndsj.Designer.cs">
-      <DependentUpon>201906061027434_ndsfndsj.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906061028265_moreskills.cs" />
-    <Compile Include="Migrations\201906061028265_moreskills.Designer.cs">
-      <DependentUpon>201906061028265_moreskills.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906061519147_fds2.cs" />
-    <Compile Include="Migrations\201906061519147_fds2.Designer.cs">
-      <DependentUpon>201906061519147_fds2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906072002573_TherapistRateUpdate.cs" />
-    <Compile Include="Migrations\201906072002573_TherapistRateUpdate.Designer.cs">
-      <DependentUpon>201906072002573_TherapistRateUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906072018137_ratingChanges.cs" />
-    <Compile Include="Migrations\201906072018137_ratingChanges.Designer.cs">
-      <DependentUpon>201906072018137_ratingChanges.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906091441195_newsalonobj.cs" />
-    <Compile Include="Migrations\201906091441195_newsalonobj.Designer.cs">
-      <DependentUpon>201906091441195_newsalonobj.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906091849561_salonchange.cs" />
-    <Compile Include="Migrations\201906091849561_salonchange.Designer.cs">
-      <DependentUpon>201906091849561_salonchange.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906091854404_data.cs" />
-    <Compile Include="Migrations\201906091854404_data.Designer.cs">
-      <DependentUpon>201906091854404_data.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906091919475_update-dalon.cs" />
-    <Compile Include="Migrations\201906091919475_update-dalon.Designer.cs">
-      <DependentUpon>201906091919475_update-dalon.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906092013344_relations.cs" />
-    <Compile Include="Migrations\201906092013344_relations.Designer.cs">
-      <DependentUpon>201906092013344_relations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906101207307_moreInDb.cs" />
-    <Compile Include="Migrations\201906101207307_moreInDb.Designer.cs">
-      <DependentUpon>201906101207307_moreInDb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906101227082_addedWho.cs" />
-    <Compile Include="Migrations\201906101227082_addedWho.Designer.cs">
-      <DependentUpon>201906101227082_addedWho.cs</DependentUpon>
+    <Compile Include="Migrations\201911021552407_sfsfsdfsfsfds.cs" />
+    <Compile Include="Migrations\201911021552407_sfsfsdfsfsfds.Designer.cs">
+      <DependentUpon>201911021552407_sfsfsdfsfsfds.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -475,68 +411,20 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201906042244530_string.resx">
-      <DependentUpon>201906042244530_string.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201910312040548_letsTry.resx">
+      <DependentUpon>201910312040548_letsTry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906051501204_jj.resx">
-      <DependentUpon>201906051501204_jj.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911021433079_addByWhoInt.resx">
+      <DependentUpon>201911021433079_addByWhoInt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906051528304_addedbart.resx">
-      <DependentUpon>201906051528304_addedbart.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911021437378_newid.resx">
+      <DependentUpon>201911021437378_newid.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906052010043_fd.resx">
-      <DependentUpon>201906052010043_fd.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911021520022_addSkilllsss.resx">
+      <DependentUpon>201911021520022_addSkilllsss.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906052107519_new.resx">
-      <DependentUpon>201906052107519_new.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906052110592_fdfs.resx">
-      <DependentUpon>201906052110592_fdfs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906052112240_dsda.resx">
-      <DependentUpon>201906052112240_dsda.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906052118575_fds.resx">
-      <DependentUpon>201906052118575_fds.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906052119499_fds1.resx">
-      <DependentUpon>201906052119499_fds1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906061027434_ndsfndsj.resx">
-      <DependentUpon>201906061027434_ndsfndsj.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906061028265_moreskills.resx">
-      <DependentUpon>201906061028265_moreskills.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906061519147_fds2.resx">
-      <DependentUpon>201906061519147_fds2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906072002573_TherapistRateUpdate.resx">
-      <DependentUpon>201906072002573_TherapistRateUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906072018137_ratingChanges.resx">
-      <DependentUpon>201906072018137_ratingChanges.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906091441195_newsalonobj.resx">
-      <DependentUpon>201906091441195_newsalonobj.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906091849561_salonchange.resx">
-      <DependentUpon>201906091849561_salonchange.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906091854404_data.resx">
-      <DependentUpon>201906091854404_data.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906091919475_update-dalon.resx">
-      <DependentUpon>201906091919475_update-dalon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906092013344_relations.resx">
-      <DependentUpon>201906092013344_relations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906101207307_moreInDb.resx">
-      <DependentUpon>201906101207307_moreInDb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906101227082_addedWho.resx">
-      <DependentUpon>201906101227082_addedWho.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911021552407_sfsfsdfsfsfds.resx">
+      <DependentUpon>201911021552407_sfsfsdfsfsfds.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -572,7 +460,7 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.3.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.3.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.3.3.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.3.3.1\build\Microsoft.Net.Compilers.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
