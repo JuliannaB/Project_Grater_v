@@ -208,6 +208,7 @@
     <Compile Include="Controllers\SalonController.cs" />
     <Compile Include="Controllers\SkillsController.cs" />
     <Compile Include="Controllers\TherapistController.cs" />
+    <Compile Include="Filters\TherapistFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -61,40 +61,54 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+<tr>
+
+    <td>
+        @Html.ActionLink(item.TherapistName, "Details", new { id = item.TherapistId }, null)
+
+    </td>
+
+
+    <td>
+        @Html.DisplayFor(modelItem => item.City)
+
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.RatingAvg)/5
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.RatingCount)
+    </td>
+    @if (item.RatingAvg > 4)
+    {
+
+    }
+    @{
+        if (ViewBag.therapistId == User.Identity.GetUserId<int>() || (User.IsInRole("Admin")))
+        {
 
             <td>
-                @Html.ActionLink(item.TherapistName, "Details", new { id = item.TherapistId }, null)
-
+                @Html.ActionLink("Edit", "Edit", new { id = item.TherapistId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.TherapistId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TherapistId })
             </td>
+        }
+        else
+        {
 
-
-            <td>
-                @Html.DisplayFor(modelItem => item.City)
-
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RatingAvg)/5
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RatingCount)
-            </td>
-            @if (item.RatingAvg > 4)
-            {
-
-            }
+        }
+    }
 
 
 
-            <td>
-                @{if (User.IsInRole("Admin"))
-                    {@Html.ActionLink("Edit", "Edit", new { id = item.TherapistId })}
-                }
 
-                @*
-                    @Html.ActionLink("Details", "Details", new { id = item.TherapistId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.TherapistId })  *@
-            </td>
-        </tr>
+    <td>
+    
+
+        @*
+            @Html.ActionLink("Details", "Details", new { id = item.TherapistId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.TherapistId })  *@
+    </td>
+</tr>
     }
 </table>

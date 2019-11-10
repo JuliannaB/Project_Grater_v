@@ -1,4 +1,5 @@
-﻿using Grater.Models;
+﻿using Grater.Filters;
+using Grater.Models;
 using Grater.ViewModels;
 using Microsoft.Ajax.Utilities;
 using Microsoft.AspNet.Identity;
@@ -61,8 +62,14 @@ namespace Grater.Controllers
             ViewBag.Salons = viewModel;
         }
 
+        public ViewResult Index(TherapistFilter searchModel)  // wylistowuje terapeutki, dodaje mozliwosc szukania
+        {
+            var filter = new TherapisFilterLogic();
+            var model = filter.GetTherapists(searchModel);
+            return View(model);
+        }
 
-        public ViewResult Index(string sortOrder, string searchString)
+      /*  public ViewResult Index(string sortOrder, string searchString)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.CitySortParm = String.IsNullOrEmpty(sortOrder) ? "city_desc" : "";
@@ -95,7 +102,7 @@ namespace Grater.Controllers
 
             return View(therapists.ToList());
         }
-
+        */
 
 
 
